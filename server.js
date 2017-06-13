@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/', function (req, res) {
   var header = JSON.parse(JSON.stringify(req.headers));
   var options = {
-    uri: '',
+    uri: 'pick',
     headers: {
       'content-type': 'application/json',
       'Authorization': header.authorization,
