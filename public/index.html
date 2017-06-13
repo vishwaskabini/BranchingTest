@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Resonea Drowzle</title>
+	<base href="/">
+	<link href="contents/bootstrap.min.css" rel="stylesheet">
+	<link href="contents/fonts/font-awesome.min.css" rel="stylesheet">
+	<link href="contents/custom.css" rel="stylesheet" type="text/css">
+
+	<script src="node_modules/core-js/client/shim.min.js"></script>
+	<script src="node_modules/zone.js/dist/zone.js"></script>
+	<script src="node_modules/reflect-metadata/Reflect.js"></script>
+	<script src="node_modules/systemjs/dist/system.src.js"></script>
+	<script src="public/systemjs.config.js"></script>
+	<script>
+		System.import('rdapp').catch(function (err) { console.error(err); });
+	</script>
+</head>
+
+<body>
+	<my-app>
+		<i class="fa fa-spinner fa-pulse fa-3x fa-fw loading-icon"></i>
+		<span class="sr-only">Loading...</span>
+	</my-app>
+</body>
+
+</html>

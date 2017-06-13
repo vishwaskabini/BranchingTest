@@ -1,0 +1,40 @@
+<ng-sidebar-container>
+	<ng-sidebar [(opened)]="_opened" [animate]="true" [sidebarClass]="'sidebar'" [closeOnClickOutside]="_closeOnClickOutside"
+	 [mode]="_mode">
+		<div class="brand">
+			<div class="brandLogo"><span class="brandLogoText">RD</span></div>
+			<div class="brandText">Resonea Drowzle</div>
+		</div>
+		<div class="brand-seperator"></div>
+		<ul>
+			<li [routerLink]=" ['Home'] " [routerLinkActive]="['active']" (click)="_toggleOpened()"><a><i class="fa fa-home fa-fw" aria-hidden="true"></i> Home</a></li>
+			<li [routerLink]=" ['Customer'] " [routerLinkActive]="['active']" (click)="_toggleOpened()"><a><i class="fa fa-user fa-fw" aria-hidden="true"></i> Customer</a></li>
+			<li [routerLink]=" ['HealthInfo'] " [routerLinkActive]="['active']" (click)="_toggleOpened()"><a><i class="fa fa-medkit fa-fw" aria-hidden="true"></i> Health Info</a></li>
+			<li [routerLink]=" ['Home'] " [routerLinkActive]="['active']" (click)="_toggleOpened()"><a><i class="fa fa-file-audio-o fa-fw" aria-hidden="true"></i> Recording Info</a></li>
+			<li [routerLink]=" ['User'] " [routerLinkActive]="['active']" (click)="_toggleOpened()"><a><i class="fa fa-users fa-fw" aria-hidden="true"></i> User</a></li>
+			<li [routerLink]=" ['ApplicationConfig'] " [routerLinkActive]="['active']" (click)="_toggleOpened()"><a><i class="fa fa-list-ul  fa-fw" aria-hidden="true"></i> Application Config</a></li>
+			<li [routerLink]=" ['ServerConfig'] " [routerLinkActive]="['active']" (click)="_toggleOpened()"><a><i class="fa fa-gear fa-fw" aria-hidden="true"></i> Server Config</a></li>
+		</ul>
+	</ng-sidebar>
+	<header class="header">
+		<div class="col-md-11" (click)="_toggleOpened()">
+			<button class="header__toggle">Toggle sidebar</button>
+			<span>Resonea Drowzle</span>
+		</div>
+		<div class="btn-group pull-right contents" dropdown *ngIf="showMenu()">
+			<a dropdownToggle class="btn btn-primary dropdown-toggle"><i class="fa fa-user fa-fw" aria-hidden="true"></i><span class="caret"></span></a>
+			<ul *dropdownMenu class="dropdown-menu" role="menu">
+				<li role="menuitem"><a class="dropdown-item" href="#"><i class="fa fa-user fa-fw" aria-hidden="true"></i> Profile</a></li>
+				<li role="menuitem"><a class="dropdown-item" href="#"><i class="fa fa-gear fa-fw" aria-hidden="true"></i> Settings</a></li>
+				<li role="menuitem"><a class="dropdown-item" href="#"><i class="fa fa-lock fa-fw" aria-hidden="true"></i> Change Password</a></li>
+				<li class="divider dropdown-divider"></li>
+				<li role="menuitem"><a class="dropdown-item" [routerLink]=" ['Login'] " [routerLinkActive]="['active']"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i> Sign out</a>
+				</li>
+			</ul>
+		</div>
+	</header>
+
+	<section class="contents">
+		<router-outlet></router-outlet>
+	</section>
+</ng-sidebar-container>

@@ -1,0 +1,304 @@
+<div class="container pageheader">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>
+                Create Health Info
+            </h3>
+        </div>
+        <div class="col-md-12">
+            <hr/>
+        </div>
+        <div class="col-lg-12">
+            <ol class="breadcrumb">
+                <li>
+                    <i class="fa fa-fw fa-home"></i> <a routerLink="/Home"> Home</a>
+                </li>
+                <li class="active">
+                    <i class="fa fa-fw fa-users"></i><a routerLink="/HealthInfo"> Manage HealthInfo </a>
+                </li>
+                <li class="active">
+                    <i class="fa fa-fw fa-plus"></i> Create HealthInfo
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div *ngIf="info" class="alert alert-danger">
+        <h5>{{info}}</h5>
+    </div>
+    <div class="col-md-12 pagefooter">
+        <form role="form">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Customer Name</label>
+                    <input class="form-control" [(ngModel)]="model.firstName" name="firstName" required placeholder="Enter First Name">
+                </div>
+                <div class="form-group">
+                    <label>Do you snore loudly - louder than talking or can be heard through closed doors?</label>
+                    <select class="form-control" [(ngModel)]="model.sbSnore" name="sbSnore" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Do not Know</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Do you often feel tired, fatigued or sleepy during the day?</label>
+                    <select class="form-control" [(ngModel)]="model.sbTired" name="sbTired" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Do not Know</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Has anyone observed you stop breathing during sleep?</label>
+                    <select class="form-control" [(ngModel)]="model.sbStopBreathing" name="sbStopBreathing" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Do not Know</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Is your neck size 16 inches (40 cm) or larger?</label>
+                    <select class="form-control" [(ngModel)]="model.sbNeck16" name="sbNeck16" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Do not Know</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Are you more than 50 years old?</label>
+                    <select class="form-control" [(ngModel)]="model.sbAge50" name="sbAge50" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Do not Know</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Do you have or are you being treated for high blood pressure?</label>
+                    <select class="form-control" [(ngModel)]="model.sbBloodPressure" name="sbBloodPressure" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Do not Know</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Gender</label>
+                    <select class="form-control" [(ngModel)]="model.sbGenderMale" name="sbGenderMale" required>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Based on your weight and height, your BMI is > 35?</label>
+                    <select class="form-control" [(ngModel)]="model.sbBMI35" name="sbBMI35" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Do not Know</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Are you currently being treated for sleep apnea?</label>
+                    <select class="form-control" [(ngModel)]="model.sbAddTreatedSA" name="sbAddTreatedSA" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Do not Know</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Treated with over-the-counter remedy?</label>
+                    <select class="form-control" [(ngModel)]="model.sbAddOTC" name="sbAddOTC" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Do not Know</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Treated with oral surgery or with dental device?</label>
+                    <select class="form-control" [(ngModel)]="model.sbAddDental" name="sbAddDental" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Do not Know</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Have you ever been diagnosed with sleep apnea?</label>
+                    <select class="form-control" [(ngModel)]="model.sbAddDiagnosedSA" name="sbAddDiagnosedSA" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Do not Know</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Treated with continuous positive airway pressure (CPAP)?</label>
+                    <select class="form-control" [(ngModel)]="model.sbAddCPAP" name="sbAddCPAP" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Do not Know</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-12"><hr/></div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>As a passenger in a car for an hour without a break?</label>
+                    <select class="form-control" [(ngModel)]="model.essCarPassenger" name="essCarPassenger" required>
+                        <option value="0">Never</option>
+                        <option value="1">Sometimes</option>
+                        <option value="2">Often</option>
+                        <option value="3">Very Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Do you get sleepy, or doze off, while watching TV?</label>
+                    <select class="form-control" [(ngModel)]="model.essTV" name="essTV" required>
+                        <option value="0">Never</option>
+                        <option value="1">Sometimes</option>
+                        <option value="2">Often</option>
+                        <option value="3">Very Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>While sitting or inactive in a public place (meeting, theater)?</label>
+                    <select class="form-control" [(ngModel)]="model.essPublicPlace" name="essPublicPlace" required>
+                        <option value="0">Never</option>
+                        <option value="1">Sometimes</option>
+                        <option value="2">Often</option>
+                        <option value="3">Very Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Sitting quietly after lunch without alcohol?</label>
+                    <select class="form-control" [(ngModel)]="model.essAfterLunch" name="essAfterLunch" required>
+                        <option value="0">Never</option>
+                        <option value="1">Sometimes</option>
+                        <option value="2">Often</option>
+                        <option value="3">Very Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Do you get sleepy or doze off, while sitting and reading?</label>
+                    <select class="form-control" [(ngModel)]="model.essSittingReading" name="essSittingReading" required>
+                        <option value="0">Never</option>
+                        <option value="1">Sometimes</option>
+                        <option value="2">Often</option>
+                        <option value="3">Very Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Sitting and talking to someone?</label>
+                    <select class="form-control" [(ngModel)]="model.essSittingTalking" name="essSittingTalking" required>
+                        <option value="0">Never</option>
+                        <option value="1">Sometimes</option>
+                        <option value="2">Often</option>
+                        <option value="3">Very Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>In a car, while stopped for a few minutes at a traffic light?</label>
+                    <select class="form-control" [(ngModel)]="model.essCarTrafficLight" name="essCarTrafficLight" required>
+                        <option value="0">Never</option>
+                        <option value="1">Sometimes</option>
+                        <option value="2">Often</option>
+                        <option value="3">Very Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Lying down to rest in the afternoon?</label>
+                    <select class="form-control" [(ngModel)]="model.essLyingDown" name="essLyingDown" required>
+                        <option value="0">Never</option>
+                        <option value="1">Sometimes</option>
+                        <option value="2">Often</option>
+                        <option value="3">Very Often</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>I have or am being treated for hypertension (high blood pressure)</label>
+                    <select class="form-control" [(ngModel)]="model.prfHypertension" name="prfHypertension" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Do not Know</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>I have or am being treated for erectile dysfunction</label>
+                    <select class="form-control" [(ngModel)]="model.prfErectileDysfunction" name="prfErectileDysfunction" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Do not Know</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>I have or am being treated for memory problems, dementia, or Alzheimer’s</label>
+                    <select class="form-control" [(ngModel)]="model.prfMemoryProblems" name="prfMemoryProblems" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Do not Know</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>I have or am being treated for congestive heart failure</label>
+                    <select class="form-control" [(ngModel)]="model.prfCongestiveHeartFailure" name="prfCongestiveHeartFailure" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Do not Know</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>I have or am being treated for diabetes</label>
+                    <select class="form-control" [(ngModel)]="model.prfDiabetes" name="prfDiabetes" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Do not Know</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>I have or am being treated for cancer</label>
+                    <select class="form-control" [(ngModel)]="model.prfCancer" name="prfCancer" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Do not Know</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>I have or am being treated for obesity</label>
+                    <select class="form-control" [(ngModel)]="model.prfObesity" name="prfObesity" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Do not Know</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>I have or am being treated for depression</label>
+                    <select class="form-control" [(ngModel)]="model.prfDepression" name="prfDepression" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Do not Know</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>I have or am being treated for stroke</label>
+                    <select class="form-control" [(ngModel)]="model.prfStroke" name="prfStroke" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Do not Know</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>I have or am being treated for heart disease, including arteriosclerosis</label>
+                    <select class="form-control" [(ngModel)]="model.prfHeartDisease" name="prfHeartDisease" required>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Do not Know</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6 col-md-offset-5">
+                <button type="submit" class="btn btn-primary" (click)="ClearHealthInfoDetails()">Cancel</button>
+                <button type="submit" class="btn btn-primary" (click)="SaveHealthInfoDetails()">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
