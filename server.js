@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/', function (req, res) {
   var header = JSON.parse(JSON.stringify(req.headers));
   var options = {
-    uri: 'http://prototypeweb.pdvrdkmq3d.us-west-2.elasticbeanstalk.com/PrototypeWebServlet',
+    uri: '',
     headers: {
       'content-type': 'application/json',
       'Authorization': header.authorization,
